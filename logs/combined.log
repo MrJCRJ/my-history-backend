@@ -33,3 +33,6 @@
 {"level":"info","message":"Conectado ao MongoDB","timestamp":"2025-03-03T23:02:26.060Z"}
 {"level":"info","message":"Histórias buscadas com sucesso","timestamp":"2025-03-03T23:02:30.857Z"}
 {"$__":{"$versionError":null,"activePaths":{"paths":{"conteudo":"require","titulo":"require"},"states":{"default":{},"modify":{},"require":{"conteudo":true,"titulo":true}}},"backup":{"activePaths":{"default":{"_id":true,"dataCriacao":true},"modify":{"conteudo":true,"titulo":true}},"validationError":null},"cachedRequired":{},"inserting":true,"op":null,"saveOptions":null,"savedState":{},"saving":null,"validating":null},"$isNew":false,"_doc":{"__v":0,"_id":"67c6350df9ce8e05cd805152","conteudo":"etes","dataCriacao":"2025-03-03T23:02:37.345Z","titulo":"test"},"level":"info","message":"História salva com sucesso:","timestamp":"2025-03-03T23:02:37.403Z"}
+{"level":"info","message":"Histórias buscadas com sucesso","timestamp":"2025-03-03T23:13:08.000Z"}
+{"level":"info","message":"Histórias buscadas com sucesso","timestamp":"2025-03-03T23:13:48.819Z"}
+{"level":"info","message":"Histórias buscadas com sucesso","timestamp":"2025-03-03T23:18:41.034Z"}
