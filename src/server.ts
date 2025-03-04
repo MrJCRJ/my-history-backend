@@ -8,8 +8,7 @@ import logger from "./logger";
 dotenv.config();
 
 const MONGO_URI =
-  process.env.MONGO_URI ||
-  "mongodb+srv://<usuário>:<senha>@cluster0.mongodb.net/minhas-historias?retryWrites=true&w=majority";
+  process.env.MONGO_URI || "mongodb://localhost:27017/historias";
 const PORT = process.env.PORT || 5000;
 
 const app = express();
