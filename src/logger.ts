@@ -8,17 +8,22 @@ const logger = winston.createLogger({
     winston.format.json() // Formata os logs como JSON
   ),
   transports: [
-    // Logs no console
+    // Logs no console (usado em produção)
     new winston.transports.Console({
       format: winston.format.combine(
         winston.format.colorize(), // Adiciona cores aos logs no console
         winston.format.simple() // Formato simples para o console
       ),
     }),
-    // Logs em arquivo
-    new winston.transports.File({ filename: "logs/error.log", level: "error" }), // Apenas logs de erro
-    new winston.transports.File({ filename: "logs/combined.log" }), // Todos os logs
   ],
 });
+
+// Adicionar transporte de arquivo apenas em ambiente local
+if (process.env.NODE_ENV !== "production") {
+  logger.add(
+    new winston.transports.File({ filename: "logs/error.log", level: "error" })
+  );
+  logger.add(new winston.transports.File({ filename: "logs/combined.log" }));
+}
 
 export default logger;
