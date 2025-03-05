@@ -1,29 +1,29 @@
 version: "3.8"
 services:
   app:
-    container_name: minhas-historias-app
+    container_name: minhas-notas-app
     build: .
     ports:
       - "5000:5000"
     depends_on:
       - mongo
     environment:
-      - MONGO_URI=mongodb://mongo:27017/minhas-historias
+      - MONGO_URI=mongodb://mongo:27017/minhas-notas
     networks:
-      - minhas-historias-network
+      - minhas-notas-network
 
   mongo:
-    container_name: minhas-historias-mongo
+    container_name: minhas-notas-mongo
     image: mongo:latest
     ports:
       - "27017:27017"
     volumes:
       - mongo-data:/data/db
     networks:
-      - minhas-historias-network
+      - minhas-notas-network
 
 volumes:
   mongo-data:
 
 networks:
-  minhas-historias-network:
+  minhas-notas-network:
