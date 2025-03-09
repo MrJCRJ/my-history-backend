@@ -107,28 +107,29 @@ app.post("/notas", autenticarToken, async (req: Request, res: Response) => {
   const { titulo, conteudo, tags } = req.body;
 
   // Verifique se o usuário está autenticado
-  if (req.user) {
-    console.log("Usuário autenticado:", req.user);
-  } else {
-    console.log("Usuário não autenticado ou token inválido");
+  if (!req.user) {
+    return res
+      .status(401)
+      .json({ error: "Não autorizado: usuário não autenticado" });
   }
+
+  console.log("Usuário autenticado:", req.user); // Log do usuário autenticado
 
   const novaNota = new NotaModel({ titulo, conteudo, tags });
   await novaNota.save();
   logger.info("Nota salva com sucesso:", novaNota);
   res.status(201).json(novaNota);
 });
-
 // Rota para editar uma nota
 app.put("/notas/:id", autenticarToken, async (req: Request, res: Response) => {
   const { id } = req.params;
   const { titulo, conteudo, tags } = req.body;
 
   // Verifique se o usuário está autenticado
-  if (req.user) {
-    console.log("Usuário autenticado:", req.user);
-  } else {
-    console.log("Usuário não autenticado ou token inválido");
+  if (!req.user) {
+    return res
+      .status(401)
+      .json({ error: "Não autorizado: usuário não autenticado" });
   }
 
   const notaAtualizada = await NotaModel.findByIdAndUpdate(
@@ -153,10 +154,10 @@ app.delete(
     const { id } = req.params;
 
     // Verifique se o usuário está autenticado
-    if (req.user) {
-      console.log("Usuário autenticado:", req.user);
-    } else {
-      console.log("Usuário não autenticado ou token inválido");
+    if (!req.user) {
+      return res
+        .status(401)
+        .json({ error: "Não autorizado: usuário não autenticado" });
     }
 
     const notaDeletada = await NotaModel.findByIdAndDelete(id);
